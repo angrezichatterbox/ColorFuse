@@ -26,6 +26,7 @@ export default function App() {
   const [showOpacitySlider, setShowOpacitySlider] = useState(false);
   const [imageViewer, setImageViewer] = useState([]);
   const [isImageViewerOpen, setIsImageViewerOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleChange = (e) => {
     if (e.target.files.length > 0) {
@@ -60,6 +61,16 @@ export default function App() {
       setImageViewer([...imageViewer, { src: file, caption: "Original Image" }]);
       setFile(null);
     }
+  };
+
+  const handleNextImage = () => {
+    const nextIndex = (currentIndex + 1) % imageViewer.length;
+    setCurrentIndex(nextIndex);
+  };
+
+  const handlePrevImage = () => {
+    const prevIndex = (currentIndex - 1 + imageViewer.length) % imageViewer.length;
+    setCurrentIndex(prevIndex);
   };
 
   const Slider = React.memo(({ label, state, setState, min, max, id }) => (
@@ -149,9 +160,10 @@ export default function App() {
       <ImgsViewer
         imgs={imageViewer}
         isOpen={isImageViewerOpen}
-        onClickPrev={() => {}}
-        onClickNext={() => {}}
+        onClickPrev={() => handlePrevImage()}
+        onClickNext={() => handleNextImage()}
         onClose={() => setIsImageViewerOpen(false)}
+        currImg={currentIndex}
       />
     </div>
   );
