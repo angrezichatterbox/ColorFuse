@@ -1,0 +1,51 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.file-input-container,
+.button-container,
+.image-container,
+.image-viewer {
+  margin: 10px;
+}
+
+.button-container button {
+  margin: 5px;
+}
+
+.slider {
+  display: flex;
+  align-items: left;
+  justify-content: flex-end;
+  margin: 10px;
+}
+.slider input {
+  width: 150px;
+  margin-left: 10px;
+}
+
+.image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.save-button,
+.imageViewer-button {
+  margin-top: 10px;
+}
+
+.image-viewer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.image-viewer img {
+  margin: 5px;
+  max-width: 100px;
+  max-height: 100px;
+}
